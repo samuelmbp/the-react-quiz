@@ -4,7 +4,9 @@ const StartScreen = ({ numOfQuestions, dispatch }) => {
   return (
     <div className="start">
       <h2>Welcome to The React Quiz!</h2>
-      <h3>{numOfQuestions} Questions to Test Your React Mastery</h3>
+      <h4>
+        <em>{numOfQuestions} questions to test your knowledge</em>
+      </h4>
       <button
         className="btn btn-ui"
         onClick={() => dispatch({ type: "start" })}
