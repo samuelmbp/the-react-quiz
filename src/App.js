@@ -77,7 +77,7 @@ const App = () => {
   const maxPoints = questions.reduce((prev, curr) => prev + curr.points, 0);
 
   useEffect(() => {
-    fetch("http://localhost:8000/questions")
+    fetch("https://the-react-quiz-yu2a.onrender.com")
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((error) => dispatch({ type: "dataFailed" }));
