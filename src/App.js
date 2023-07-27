@@ -9,7 +9,9 @@ import Question from "./components/Question";
 const initialState = {
   questions: [],
   status: "loading",
+  index: 0,
 };
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "dataReceived":
@@ -24,7 +26,10 @@ const reducer = (state, action) => {
 };
 
 const App = () => {
-  const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
+  const [{ questions, status, index }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
   const numOfQuestions = questions.length;
 
   useEffect(() => {
@@ -44,7 +49,7 @@ const App = () => {
         {status === "ready" && (
           <StartScreen numOfQuestions={numOfQuestions} dispatch={dispatch} />
         )}
-        {status === "active" && <Question />}
+        {status === "active" && <Question question={questions[index]} />}
       </Main>
     </div>
   );
